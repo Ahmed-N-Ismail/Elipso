@@ -1,0 +1,98 @@
+// font 
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
+
+// decler variable
+$witheColor :#FFFFFF;
+$mainColor :#554D89;
+$mainBoxShadow: 0px 0px 20px 0px #e1e4ed;
+
+
+//bablck style
+*{
+    font-family: 'Nunito Sans', sans-serif;
+}
+input{
+    border: none;
+    outline: none;
+}
+/* start navbar style */
+.navbar{
+    box-shadow: $mainBoxShadow;
+    background-color: $witheColor;
+    .navbar-brand{
+        color: $mainColor;
+        font-size: 1.8rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        & img{
+            width: 40px;
+            height: 40px;
+            margin-right: .5rem;
+        }
+    }
+    .collapse{
+        .navbar-nav {
+            .nav-item{                
+                .nav-link{
+                    text-transform: capitalize;
+                    color: $mainColor;
+                    padding: 13px 20px;
+                    line-height: 6rem;
+                    font-size: 1.1rem;                    
+                }
+            }
+            .dropdown-menu{
+                box-shadow: $mainBoxShadow;
+                background-color: #FFFFFF;
+                border-radius: 10px;
+                border: none;
+            }
+        }
+        .navbar__form{
+            background-color: $witheColor;
+            border: 1px solid #D5D5D5;
+            border-radius: 25px;
+            padding: 5px 15px;
+            input{
+                border: none;
+                color: $mainColor;
+            }
+            .nav__seacher{
+                color: $mainColor;
+            }       
+        }
+    }
+}
+
+// end navbar
+
+// start main section
+.main{
+    .carousel-item {
+        height: 80vh;
+        overflow: hidden;
+        position: relative;       
+        & img{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%) scale(1);
+            animation: imgScale 7s infinite ease-in-out;
+        }
+    }
+}
+@media (min-width:1024px){
+    .main{
+        .carousel-item {
+            height: 90vh;
+            
+    }
+}
+@keyframes imgScale{
+    from{
+        transform: translateY(-50%) scale(1);
+    }
+    to{
+        transform: translateY(-50%) scale(1.1);
+    }
+}
+// end main section

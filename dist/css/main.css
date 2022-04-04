@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap");
+* {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+input {
+  border: none;
+  outline: none;
+}
+
+/* start navbar style */
+.navbar {
+  box-shadow: 0px 0px 20px 0px #e1e4ed;
+  background-color: #FFFFFF;
+}
+
+.navbar .navbar-brand {
+  color: #554D89;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.navbar .navbar-brand img {
+  width: 40px;
+  height: 40px;
+  margin-right: .5rem;
+}
+
+.navbar .collapse .navbar-nav .nav-item .nav-link {
+  text-transform: capitalize;
+  color: #554D89;
+  padding: 13px 20px;
+  line-height: 6rem;
+  font-size: 1.1rem;
+}
+
+.navbar .collapse .navbar-nav .dropdown-menu {
+  box-shadow: 0px 0px 20px 0px #e1e4ed;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  border: none;
+}
+
+.navbar .collapse .navbar__form {
+  background-color: #FFFFFF;
+  border: 1px solid #D5D5D5;
+  border-radius: 25px;
+  padding: 5px 15px;
+}
+
+.navbar .collapse .navbar__form input {
+  border: none;
+  color: #554D89;
+}
+
+.navbar .collapse .navbar__form .nav__seacher {
+  color: #554D89;
+}
+
+.main .carousel-item {
+  height: 80vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.main .carousel-item img {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) scale(1);
+  animation: imgScale 7s infinite ease-in-out;
+}
+
+@media (min-width: 1024px) {
+  .main .carousel-item {
+    height: 80vh;
+    overflow: hidden;
+    position: relative;
+  }
+  .main .carousel-item img {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) scale(1);
+    animation: imgScale 7s infinite ease-in-out;
+  }
+}
+
+@keyframes imgScale {
+  from {
+    transform: translateY(-50%) scale(1);
+  }
+  to {
+    transform: translateY(-50%) scale(1.1);
+  }
+}
+/*# sourceMappingURL=main.css.map */
