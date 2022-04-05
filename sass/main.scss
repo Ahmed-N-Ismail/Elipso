@@ -1,98 +1,210 @@
-// font 
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
+// font
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&family=Poppins:wght@400;500;700&display=swap");
 
 // decler variable
-$witheColor :#FFFFFF;
-$mainColor :#554D89;
+$witheColor: #ffffff;
+$mainColor: #554d89;
+$blue: #BA43FC;
+$red: #EF7171;
 $mainBoxShadow: 0px 0px 20px 0px #e1e4ed;
+$mainFont: "Nunito Sans", sans-serif;
+$secFont: "Poppins", sans-serif;
+$margin: 8rem;
+$btnShadow:  -32px 0px 30px 0px #6852ed inset;
 
-
-//bablck style
-*{
-    font-family: 'Nunito Sans', sans-serif;
+/* start genral style*/
+:root {
+  font-size: 10px;
 }
-input{
-    border: none;
-    outline: none;
+* {
+  font-family: $mainFont;
 }
-/* start navbar style */
-.navbar{
-    box-shadow: $mainBoxShadow;
+body{
+    font-size: 1.6rem;
+}
+input {
+  border: none;
+  outline: none;
+}
+.m-gneral{
+    margin: $margin 0;
+}
+.layout {
+  position: absolute;
+  background-color: rgba(30, 27, 51, 0.4);
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+%btnGenral {
+  font-family: $secFont;
+  font-size: 1.6rem;
+  letter-spacing: 1px;
+  border-width: 2px;
+  color: $witheColor;
+  border-color: $witheColor;
+  padding: 14px 30px 14px 30px;
+  &:hover {
     background-color: $witheColor;
-    .navbar-brand{
+    color: $mainColor;
+  }
+}
+/* end genral style*/
+@function set-color($color){
+    @if(lightness($color) > 40){
+        @return $blue;
+    }
+    @else{
+        @return $witheColor;
+    }
+}
+
+/* start navbar style */
+.navbar {
+  box-shadow: $mainBoxShadow;
+  background-color: $witheColor;
+  .navbar-brand {
+    color: $mainColor;
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    & img {
+      width: 4rem;
+      height: 4rem;
+      margin-right: 0.5rem;
+    }
+  }
+  .collapse {
+    .navbar-nav {
+      .nav-item {
+        .nav-link {
+          text-transform: capitalize;
+          color: $mainColor;
+          padding: 1.3rem 2rem;
+          line-height: 6rem;
+          font-size: 1.8rem;
+        }
+      }
+      .dropdown-menu {
+        box-shadow: $mainBoxShadow;
+        background-color: $witheColor;
+        border-radius: 1rem;
+        border: none;
+        font-size: 1.6rem;
+      }
+    }
+    .navbar__form {
+      background-color: $witheColor;
+      border: 1px solid #d5d5d5;
+      border-radius: 2.5rem;
+      padding: 0.7rem 2rem;
+      input {
+        border: none;
         color: $mainColor;
-        font-size: 1.8rem;
-        text-transform: uppercase;
+      }
+      .nav__seacher {
+        color: $mainColor;
+      }
+    }
+  }
+}
+
+/* end navbar style*/
+
+/* start main section*/
+.main {
+  .carousel-indicators {
+    button {
+      width: 1rem;
+      height: 1rem;
+      border-radius: 50%;
+      &.active {
+        background-color: $blue;
+      }
+    }
+  }
+  .carousel-item {
+    height: 95vh;
+    position: relative;
+    overflow: hidden;
+    & img {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%) scale(1);
+      animation: imgScale 10s infinite linear;
+      object-fit: cover;
+    }
+    .main__caption {
+      position: absolute;
+      top: 50%;
+      left: 20%;
+      transform: translateY(-50%);
+      z-index: 2;
+      color: $witheColor;
+      .caption__title {
+        font-family: "Poppins", sans-serif;
+        font-size: 50px;
         font-weight: 700;
-        & img{
-            width: 40px;
-            height: 40px;
-            margin-right: .5rem;
-        }
+        line-height: 60px;
+      }
+      .caption__text {
+        font-size: 22px;
+        font-weight: 300;
+        line-height: 33px;
+      }
+      .btn {
+        @extend %btnGenral;
+      }
     }
-    .collapse{
-        .navbar-nav {
-            .nav-item{                
-                .nav-link{
-                    text-transform: capitalize;
-                    color: $mainColor;
-                    padding: 13px 20px;
-                    line-height: 6rem;
-                    font-size: 1.1rem;                    
-                }
-            }
-            .dropdown-menu{
-                box-shadow: $mainBoxShadow;
-                background-color: #FFFFFF;
-                border-radius: 10px;
-                border: none;
-            }
-        }
-        .navbar__form{
-            background-color: $witheColor;
-            border: 1px solid #D5D5D5;
-            border-radius: 25px;
-            padding: 5px 15px;
-            input{
-                border: none;
-                color: $mainColor;
-            }
-            .nav__seacher{
-                color: $mainColor;
-            }       
-        }
-    }
+  }
+  .main__box{
+      color: $mainColor;
+      padding: 3rem;
+      background: $witheColor;
+      box-shadow: $mainBoxShadow;
+      border-radius: 1rem;
+      .box__icon{
+          font-size: 3.5rem;
+          color: $blue;
+      }
+      .box__title a{
+          font-size: 2.2rem;
+          font-family: $secFont;
+          color: $mainColor;
+          &:hover{
+              color: $red;
+          }
+      }
+      &:hover{
+          box-shadow: $mainBoxShadow,$mainBoxShadow;
+      }
+  }
+  .main__info{
+      
+      .info__title a{
+          font-size: 3rem;
+          font-family: $secFont;
+          font-weight: 600;
+          color: $mainColor;
+      }
+      .btn{
+          @extend %btnGenral;
+          background-color: set-color($witheColor);
+          box-shadow: $btnShadow;
+          &:hover{
+              background-color: set-color($witheColor);
+          }
+      }
+  }
 }
-
-// end navbar
-
-// start main section
-.main{
-    .carousel-item {
-        height: 80vh;
-        overflow: hidden;
-        position: relative;       
-        & img{
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%) scale(1);
-            animation: imgScale 7s infinite ease-in-out;
-        }
-    }
+@keyframes imgScale {
+  from {
+    transform: translateY(-50%) scale(1.5);
+  }
+  to {
+    transform: translateY(-50%) scale(1.7);
+  }
 }
-@media (min-width:1024px){
-    .main{
-        .carousel-item {
-            height: 90vh;
-            
-    }
-}
-@keyframes imgScale{
-    from{
-        transform: translateY(-50%) scale(1);
-    }
-    to{
-        transform: translateY(-50%) scale(1.1);
-    }
-}
-// end main section
+/* end main section*/

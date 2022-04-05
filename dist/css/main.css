@@ -1,6 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&family=Poppins:wght@400;500;700&display=swap");
+/* start genral style*/
+:root {
+  font-size: 10px;
+}
+
 * {
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+body {
+  font-size: 1.6rem;
 }
 
 input {
@@ -8,89 +17,186 @@ input {
   outline: none;
 }
 
+.m-gneral {
+  margin: 8rem 0;
+}
+
+.layout {
+  position: absolute;
+  background-color: rgba(30, 27, 51, 0.4);
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+.main .carousel-item .main__caption .btn, .main .main__info .btn {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.6rem;
+  letter-spacing: 1px;
+  border-width: 2px;
+  color: #ffffff;
+  border-color: #ffffff;
+  padding: 14px 30px 14px 30px;
+}
+
+.main .carousel-item .main__caption .btn:hover, .main .main__info .btn:hover {
+  background-color: #ffffff;
+  color: #554d89;
+}
+
+/* end genral style*/
 /* start navbar style */
 .navbar {
   box-shadow: 0px 0px 20px 0px #e1e4ed;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 }
 
 .navbar .navbar-brand {
-  color: #554D89;
-  font-size: 1.8rem;
+  color: #554d89;
+  font-size: 2rem;
   text-transform: uppercase;
   font-weight: 700;
 }
 
 .navbar .navbar-brand img {
-  width: 40px;
-  height: 40px;
-  margin-right: .5rem;
+  width: 4rem;
+  height: 4rem;
+  margin-right: 0.5rem;
 }
 
 .navbar .collapse .navbar-nav .nav-item .nav-link {
   text-transform: capitalize;
-  color: #554D89;
-  padding: 13px 20px;
+  color: #554d89;
+  padding: 1.3rem 2rem;
   line-height: 6rem;
-  font-size: 1.1rem;
+  font-size: 1.8rem;
 }
 
 .navbar .collapse .navbar-nav .dropdown-menu {
   box-shadow: 0px 0px 20px 0px #e1e4ed;
-  background-color: #FFFFFF;
-  border-radius: 10px;
+  background-color: #ffffff;
+  border-radius: 1rem;
   border: none;
+  font-size: 1.6rem;
 }
 
 .navbar .collapse .navbar__form {
-  background-color: #FFFFFF;
-  border: 1px solid #D5D5D5;
-  border-radius: 25px;
-  padding: 5px 15px;
+  background-color: #ffffff;
+  border: 1px solid #d5d5d5;
+  border-radius: 2.5rem;
+  padding: 0.7rem 2rem;
 }
 
 .navbar .collapse .navbar__form input {
   border: none;
-  color: #554D89;
+  color: #554d89;
 }
 
 .navbar .collapse .navbar__form .nav__seacher {
-  color: #554D89;
+  color: #554d89;
+}
+
+/* end navbar style*/
+/* start main section*/
+.main .carousel-indicators button {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+}
+
+.main .carousel-indicators button.active {
+  background-color: #BA43FC;
 }
 
 .main .carousel-item {
-  height: 80vh;
-  overflow: hidden;
+  height: 95vh;
   position: relative;
+  overflow: hidden;
 }
 
 .main .carousel-item img {
   position: absolute;
   top: 50%;
   transform: translateY(-50%) scale(1);
-  animation: imgScale 7s infinite ease-in-out;
+  animation: imgScale 10s infinite linear;
+  object-fit: cover;
 }
 
-@media (min-width: 1024px) {
-  .main .carousel-item {
-    height: 80vh;
-    overflow: hidden;
-    position: relative;
-  }
-  .main .carousel-item img {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%) scale(1);
-    animation: imgScale 7s infinite ease-in-out;
-  }
+.main .carousel-item .main__caption {
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  transform: translateY(-50%);
+  z-index: 2;
+  color: #ffffff;
+}
+
+.main .carousel-item .main__caption .caption__title {
+  font-family: "Poppins", sans-serif;
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 60px;
+}
+
+.main .carousel-item .main__caption .caption__text {
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 33px;
+}
+
+.main .main__box {
+  color: #554d89;
+  padding: 3rem;
+  background: #ffffff;
+  box-shadow: 0px 0px 20px 0px #e1e4ed;
+  border-radius: 1rem;
+}
+
+.main .main__box .box__icon {
+  font-size: 3.5rem;
+  color: #BA43FC;
+}
+
+.main .main__box .box__title a {
+  font-size: 2.2rem;
+  font-family: "Poppins", sans-serif;
+  color: #554d89;
+}
+
+.main .main__box .box__title a:hover {
+  color: #EF7171;
+}
+
+.main .main__box:hover {
+  box-shadow: 0px 0px 20px 0px #e1e4ed, 0px 0px 20px 0px #e1e4ed;
+}
+
+.main .main__info .info__title a {
+  font-size: 3rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  color: #554d89;
+}
+
+.main .main__info .btn {
+  background-color: #BA43FC;
+  box-shadow: -32px 0px 30px 0px #6852ed inset;
+}
+
+.main .main__info .btn:hover {
+  background-color: #BA43FC;
 }
 
 @keyframes imgScale {
   from {
-    transform: translateY(-50%) scale(1);
+    transform: translateY(-50%) scale(1.5);
   }
   to {
-    transform: translateY(-50%) scale(1.1);
+    transform: translateY(-50%) scale(1.7);
   }
 }
+
+/* end main section*/
 /*# sourceMappingURL=main.css.map */
