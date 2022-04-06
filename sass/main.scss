@@ -4,13 +4,15 @@
 // decler variable
 $witheColor: #ffffff;
 $mainColor: #554d89;
-$blue: #BA43FC;
-$red: #EF7171;
+$blue: #ba43fc;
+$red: #ef7171;
 $mainBoxShadow: 0px 0px 20px 0px #e1e4ed;
 $mainFont: "Nunito Sans", sans-serif;
 $secFont: "Poppins", sans-serif;
 $margin: 8rem;
-$btnShadow:  -32px 0px 30px 0px #6852ed inset;
+$btnShadow: -32px 0px 30px 0px #6852ed inset;
+$btnHover: #6852ED;
+$textColor: #5B5766;
 
 /* start genral style*/
 :root {
@@ -19,15 +21,15 @@ $btnShadow:  -32px 0px 30px 0px #6852ed inset;
 * {
   font-family: $mainFont;
 }
-body{
-    font-size: 1.6rem;
+body {
+  font-size: 1.6rem;
 }
 input {
   border: none;
   outline: none;
 }
-.m-gneral{
-    margin: $margin 0;
+.m-gneral {
+  margin: $margin 0;
 }
 .layout {
   position: absolute;
@@ -38,28 +40,75 @@ input {
   width: 100%;
   z-index: 1;
 }
+.title{
+  font-family: $secFont;
+  font-weight: 600;
+  font-size: 3.3rem;
+  color: $mainColor;
+}
 %btnGenral {
+  text-transform: capitalize;
   font-family: $secFont;
   font-size: 1.6rem;
   letter-spacing: 1px;
   border-width: 2px;
   color: $witheColor;
   border-color: $witheColor;
-  padding: 14px 30px 14px 30px;
+  padding: 1rem 3rem;
   &:hover {
     background-color: $witheColor;
     color: $mainColor;
   }
 }
-/* end genral style*/
-@function set-color($color){
-    @if(lightness($color) > 40){
-        @return $blue;
+%indicators{
+  button {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: $mainColor;
+    &.active {
+      background-color: $blue;
+      opacity: 1;
     }
-    @else{
-        @return $witheColor;
-    }
+  }
 }
+.box{
+  font-size: 1.6rem;
+  color: $mainColor;
+  padding: 3rem;
+  background: $witheColor;
+  box-shadow: $mainBoxShadow;
+  border-radius: 1rem;
+  &:hover {
+    box-shadow: $mainBoxShadow, $mainBoxShadow;
+  }
+  .box__icon{
+    font-size: 3.5rem;
+    color: $blue;
+  }
+  hr{
+    background-color: $blue;
+    height: 1px;
+  }
+  .box__title{
+    font-size: 2.2rem;
+    font-family: $secFont;
+    color: $mainColor;
+  }
+  .box__text{
+    color: $textColor;
+    font-size: 1.8rem;
+  }
+}
+h1,h2,h3,h4,h5,h6{
+  font-family: $secFont;
+}
+.title__icon{
+  font-size: 3.5rem;
+  margin-right: 1.3rem;
+  margin-left: -5rem;
+}
+/* end genral style*/
 
 /* start navbar style */
 .navbar {
@@ -116,14 +165,7 @@ input {
 /* start main section*/
 .main {
   .carousel-indicators {
-    button {
-      width: 1rem;
-      height: 1rem;
-      border-radius: 50%;
-      &.active {
-        background-color: $blue;
-      }
-    }
+    @extend %indicators;
   }
   .carousel-item {
     height: 95vh;
@@ -159,44 +201,33 @@ input {
       }
     }
   }
-  .main__box{
+  .main__box {
+    @extend .box;
+    
+    .box__title a {
       color: $mainColor;
-      padding: 3rem;
-      background: $witheColor;
-      box-shadow: $mainBoxShadow;
-      border-radius: 1rem;
-      .box__icon{
-          font-size: 3.5rem;
-          color: $blue;
+      &:hover {
+        color: $red;
       }
-      .box__title a{
-          font-size: 2.2rem;
-          font-family: $secFont;
-          color: $mainColor;
-          &:hover{
-              color: $red;
-          }
-      }
-      &:hover{
-          box-shadow: $mainBoxShadow,$mainBoxShadow;
-      }
+    }
+    
   }
-  .main__info{
-      
-      .info__title a{
-          font-size: 3rem;
-          font-family: $secFont;
-          font-weight: 600;
-          color: $mainColor;
+  .main__info {
+    .info__title a {
+      font-size: 3rem;
+      font-family: $secFont;
+      font-weight: 600;
+      color: $mainColor;
+    }
+    .btn {
+      @extend %btnGenral;
+      background-color: $blue;
+      box-shadow: $btnShadow;
+      &:hover {
+        background-color: $btnHover;
+        color: $witheColor;
       }
-      .btn{
-          @extend %btnGenral;
-          background-color: set-color($witheColor);
-          box-shadow: $btnShadow;
-          &:hover{
-              background-color: set-color($witheColor);
-          }
-      }
+    }
   }
 }
 @keyframes imgScale {
@@ -208,3 +239,155 @@ input {
   }
 }
 /* end main section*/
+
+/* start dream section*/
+.dream{
+  .dream__content{
+    padding-top: 8rem;
+    padding-bottom: 10rem;
+    background: url('/img/plan.webp') no-repeat;
+
+    .dream__info{
+      font-size: 2rem;
+      .dream__icon{
+        width: 9rem;
+        height: 9rem;
+        font-size: 3.2rem;
+        background-color: $blue;
+        box-shadow: $btnShadow;
+        color: $witheColor;
+        cursor: pointer;
+        &:hover{
+          background-color: $btnHover;
+        }
+      }
+      .dream__title{
+        font-family: $secFont;
+        font-size: 3.4rem;
+        font-weight: 600;
+        line-height: 4.4rem;
+        color: $mainColor;
+        margin: 3.5rem 0;
+      }
+    }
+  }
+  .dream__box{
+    margin-top: -7rem;
+  }
+}
+/* end dream section*/
+/* start cards section*/
+.cards{
+  .card{
+    border: none;
+    color: $textColor;
+    font-size: 1.8rem;
+    img{
+      border-radius: 237px 237px 80px 237px;
+    }
+    .card-title{
+      font-family: $secFont;
+      font-weight: 600;
+      line-height: 44px;
+      font-size: 3.4rem;
+      color: $mainColor;
+    }
+    .card-text{
+      margin: 2rem 0s;
+    }
+    .btn{
+      @extend %btnGenral;
+      color: $mainColor;
+      &:first-child{
+        background-color: $blue;
+        box-shadow: $btnShadow;
+        color: $witheColor;
+        &:hover{
+          background-color: $btnHover;
+        }
+      }
+    }
+  }
+}
+/* end cards section*/
+/* start about section*/
+.about{
+  .about__slider{
+    padding: 5rem 0;
+    background: url('/img/aboutSlider.webp') center no-repeat;
+    background-size: cover;
+    .carousel-indicators{
+      bottom: -4rem;
+      @extend %indicators;
+    }
+    .carousel-item{
+      img{
+        width: 10rem;
+        height: 10rem;
+        display: block;
+      }
+      p{
+        font-size: 1.8rem;
+        line-height: 2.7rem;
+        color: $textColor;
+      }
+      .client__name{
+        font-family: $secFont;
+        font-weight: 500;
+        color: $mainColor;
+        font-size: 2rem;
+      }
+    }
+  }
+}
+/* end about section*/
+/* start contact section*/
+.contact{
+  .contact__content{
+    padding: 5rem 0;
+    background: url(/img/aboutSlider.webp) center no-repeat;
+    background-size: cover;
+    .title{
+      font-size: 2rem;
+      font-weight: 500;
+      .red{
+        color: $red;
+        font-family: inherit;
+      }
+    }
+    .btn{
+      @extend %btnGenral;
+      background-color: #FF8560;
+      box-shadow: -32px 0px 30px 0px #ef7171 inset;
+      border: none;
+      &:hover{
+        color: #FFFFFF;
+        background-color: #EF7171;
+      }
+    }
+  }
+  .card{
+    border: none;
+    img{
+      border-top-left-radius: 0 !important;
+      border-bottom-left-radius: 0 !important;
+    }
+  }
+  .subscribe{
+    color: $witheColor;
+    background-color: $btnHover;
+    padding: 2.5rem;
+    border-radius: 1rem;
+    .sub__icon{
+      font-size: 3.5rem;
+    }
+    .btn{
+      @extend %btnGenral;
+    }
+  }
+}
+/* end contact section*/
+
+
+
+
